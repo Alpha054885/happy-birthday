@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#FFB6D9" />
+<title>Happy Birthday, Asiya! 🎂</title>
+<meta name="description" content="A tiny corner of the internet built specially to make Asiya smile. Happy Birthday, bestie!" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%82%3C/text%3E%3C/svg%3E" />
+
+<!-- Fonts are optional; the site falls back to system fonts if offline. -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="style.css" />
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body class="is-locked">
+
+<a class="skip-link" href="#hero">Skip to the birthday content</a>
+
+<!-- Confetti particles are injected here -->
+<div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
+
+<!-- Background music toggle -->
+<button class="music-toggle" id="musicToggle" type="button" aria-pressed="false">
+  <svg class="music-toggle__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18V5l12-2v13" />
+    <circle cx="6" cy="18" r="3" />
+    <circle cx="18" cy="16" r="3" />
+  </svg>
+  <span class="music-toggle__label" id="musicLabel">Music: Off</span>
+</button>
+
+<!-- ============================================================
+     OPENING SCREEN — THE BIRTHDAY DRAMA
+     ============================================================ -->
+<div class="opening" id="openingScreen" role="dialog" aria-modal="true" aria-labelledby="openingTitle">
+  <div class="opening__inner">
+
+    <div class="opening__art" aria-hidden="true">
+      <img src="WhatsApp Image 2026-10-20 at 1.15.09 PM.jpeg" alt="" width="170" height="170" />
+    </div>
+
+    <div class="card opening__card" id="openingMain">
+      <span class="sticker">SYSTEM ALERT</span>
+      <h1 class="opening__title" id="openingTitle">
+        STOP RIGHT THERE! <span class="opening__hand" aria-hidden="true">✋</span>
+      </h1>
+      <p class="opening__question">Is your name <strong>Asiya</strong>?</p>
+      <p class="opening__warning">Warning: A dangerously special birthday surprise has been detected!</p>
+
+      <div class="opening__actions">
+        <button class="btn btn--primary" id="btnYes" type="button">YES, IT'S ME 😂</button>
+        <button class="btn btn--ghost" id="btnNo" type="button">NO, WRONG PERSON 🤨</button>
+      </div>
+
+      <noscript>
+        <p class="opening__warning">This surprise needs JavaScript to work. Please enable it and refresh. 🎂</p>
+      </noscript>
+    </div>
+
+    <div class="card opening__card opening__card--denied" id="openingDenied" hidden>
+      <h2 class="opening__denied-title">Nice try! This website was specially made for Asiya. 😂</h2>
+      <p class="opening__denied-text">Unless you happen to be her, in which case… identity crisis?</p>
+      <button class="btn btn--primary" id="btnTryAgain" type="button">Okay, let me try again</button>
+    </div>
+
+    <div class="opening__welcome" id="openingWelcome" hidden>
+      <h2>FINALLY! The birthday celebrity has arrived!</h2>
+    </div>
+
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero" id="hero">
+    <div class="hero__balloons" aria-hidden="true">
+      <span class="balloon balloon--1" style="--c:#FFB6D9"></span>
+      <span class="balloon balloon--2" style="--c:#C9B6FF"></span>
+      <span class="balloon balloon--3" style="--c:#FFD6B8"></span>
+      <span class="balloon balloon--4" style="--c:#9BE7C4"></span>
+    </div>
+
+    <div class="container hero__inner">
+      <p class="badge">BEST FRIEND EDITION</p>
+
+      <h1 class="hero__title">HAPPY BIRTHDAY, ASIYA! 🎂</h1>
+
+      <p class="hero__subtitle">
+        Another year older, another year more iconic... allegedly. 😂
+      </p>
+
+      <img class="hero__art" src="WhatsApp Image 2026-10-20 at 1.15.13 PM.jpeg"
+           alt="Illustration of a birthday cake surrounded by balloons and stars"
+           width="420" height="420" />
+
+      <button class="btn btn--primary btn--large" id="unlockBtn" type="button">
+        UNLOCK THE CHAOS 🎉
+      </button>
+
+      <p class="hero__status">Official Birthday Status: Too Fabulous to Calculate</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FUNNY MESSAGE GENERATOR
+       ============================================================ -->
+  <section class="section" id="nonsense">
+    <div class="container">
+      <h2 class="section__title">Officially Certified Birthday Nonsense 😂</h2>
+      <p class="section__lead">Press the button. Receive wisdom. Question the wisdom.</p>
+
+      <div class="generator card reveal">
+        <div class="generator__quote" id="messageCard" aria-live="polite" aria-atomic="true">
+          <p id="messageText">Congratulations! You've unlocked another year of being absolutely impossible to ignore. 😂</p>
+        </div>
+        <button class="btn btn--primary" id="btnNewMessage" type="button">ROAST ME AGAIN 🔥</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       BEST-FRIEND ROASTING ZONE
+       ============================================================ -->
+  <section class="section section--tint" id="roast">
+    <div class="container">
+      <h2 class="section__title">Things We Must Officially Discuss About Asiya</h2>
+      <p class="section__lead">Purely fictional. Mostly. Please do not sue the best friend.</p>
+
+      <div class="roast-grid">
+
+        <article class="roast card reveal">
+          <span class="roast__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+            </svg>
+          </span>
+          <h3 class="roast__title">THE REPLY CHAMPION</h3>
+          <p class="roast__text">Sometimes replies arrive so late they deserve their own historical documentary.</p>
+        </article>
+
+        <article class="roast card reveal">
+          <span class="roast__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 3v7a2 2 0 0 0 4 0V3"/><path d="M9 12v9"/>
+              <path d="M17 3c-1.8 1.6-2 4.2-2 6.2 0 1.4.7 2.3 2 2.3s2-.9 2-2.3C19 7.2 18.8 4.6 17 3z"/>
+              <path d="M17 11.5V21"/>
+            </svg>
+          </span>
+          <h3 class="roast__title">THE FOOD EXPERT</h3>
+          <p class="roast__text">Can identify food from three streets away. An internationally recognized talent.</p>
+        </article>
+
+        <article class="roast card reveal">
+          <span class="roast__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="3"/>
+              <path d="M7 4v16M17 4v16M2 9h5M2 15h5M17 9h5M17 15h5"/>
+            </svg>
+          </span>
+          <h3 class="roast__title">THE DRAMA DEPARTMENT</h3>
+          <p class="roast__text">Normal situations somehow become full-length movies. Oscar nominations pending.</p>
+        </article>
+
+        <article class="roast card reveal">
+          <span class="roast__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+              <circle cx="12" cy="13" r="4"/>
+            </svg>
+          </span>
+          <h3 class="roast__title">THE SELFIE DIRECTOR</h3>
+          <p class="roast__text">One photo? Absolutely not. We need 47 angles and a committee meeting.</p>
+        </article>
+
+        <article class="roast card reveal">
+          <span class="roast__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+              <line x1="9" y1="9" x2="9.01" y2="9"/>
+              <line x1="15" y1="9" x2="15.01" y2="9"/>
+            </svg>
+          </span>
+          <h3 class="roast__title">THE MOOD MANAGER</h3>
+          <p class="roast__text">Mood updates arrive faster than software updates.</p>
+        </article>
+
+        <article class="roast card reveal">
+          <span class="roast__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </span>
+          <h3 class="roast__title">THE BEST-FRIEND LEGEND</h3>
+          <p class="roast__text">Annoying sometimes? Maybe. Worth having around? Absolutely YES.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       INTERACTIVE BIRTHDAY CAKE
+       ============================================================ -->
+  <section class="section" id="cake">
+    <div class="container">
+      <h2 class="section__title">The Official Wish Ceremony 🎂</h2>
+      <p class="section__lead">Three candles. One wish. Zero refunds.</p>
+
+      <div class="cake" id="cakeScene">
+        <svg viewBox="0 0 400 320" role="img" aria-labelledby="cakeTitle cakeDesc">
+          <title id="cakeTitle">A three-layer birthday cake with three lit candles</title>
+          <desc id="cakeDesc">Click "Make a Wish" to blow out the candles.</desc>
+
+          <defs>
+            <linearGradient id="layerPink" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#FFC7E2"/><stop offset="1" stop-color="#FF9FCC"/>
+            </linearGradient>
+            <linearGradient id="layerLav" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#D8CBFF"/><stop offset="1" stop-color="#B7A1FF"/>
+            </linearGradient>
+            <linearGradient id="layerPeach" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#FFE3CC"/><stop offset="1" stop-color="#FFC79E"/>
+            </linearGradient>
+            <linearGradient id="flameGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#FFE07A"/><stop offset="1" stop-color="#FF8A3D"/>
+            </linearGradient>
+          </defs>
+
+          <!-- glow behind the cake -->
+          <ellipse class="cake__glow" cx="200" cy="120" rx="130" ry="90" fill="#FFD6B8" opacity="0.35"/>
+
+          <!-- plate -->
+          <ellipse cx="200" cy="286" rx="150" ry="18" fill="#35243F" opacity="0.10"/>
+          <ellipse cx="200" cy="280" rx="140" ry="16" fill="#EFE3F6"/>
+
+          <!-- bottom layer -->
+          <rect x="70" y="210" width="260" height="62" rx="12" fill="url(#layerPink)"/>
+          <rect x="62" y="192" width="276" height="26" rx="13" fill="#FFF9F2"/>
+          <g fill="#FFF9F2">
+            <circle cx="78" cy="216" r="12"/><circle cx="102" cy="216" r="12"/><circle cx="126" cy="216" r="12"/>
+            <circle cx="150" cy="216" r="12"/><circle cx="174" cy="216" r="12"/><circle cx="198" cy="216" r="12"/>
+            <circle cx="222" cy="216" r="12"/><circle cx="246" cy="216" r="12"/><circle cx="270" cy="216" r="12"/>
+            <circle cx="294" cy="216" r="12"/><circle cx="318" cy="216" r="12"/>
+          </g>
+
+          <!-- middle layer -->
+          <rect x="95" y="162" width="210" height="42" rx="10" fill="url(#layerLav)"/>
+          <rect x="88" y="146" width="224" height="24" rx="12" fill="#FFF9F2"/>
+          <g fill="#FFF9F2">
+            <circle cx="102" cy="168" r="11"/><circle cx="124" cy="168" r="11"/><circle cx="146" cy="168" r="11"/>
+            <circle cx="168" cy="168" r="11"/><circle cx="190" cy="168" r="11"/><circle cx="212" cy="168" r="11"/>
+            <circle cx="234" cy="168" r="11"/><circle cx="256" cy="168" r="11"/><circle cx="278" cy="168" r="11"/>
+            <circle cx="298" cy="168" r="11"/>
+          </g>
+
+          <!-- top layer -->
+          <rect x="120" y="118" width="160" height="38" rx="10" fill="url(#layerPeach)"/>
+          <rect x="113" y="102" width="174" height="24" rx="12" fill="#FFF9F2"/>
+          <g fill="#FFF9F2">
+            <circle cx="127" cy="124" r="11"/><circle cx="149" cy="124" r="11"/><circle cx="171" cy="124" r="11"/>
+            <circle cx="193" cy="124" r="11"/><circle cx="215" cy="124" r="11"/><circle cx="237" cy="124" r="11"/>
+            <circle cx="259" cy="124" r="11"/><circle cx="273" cy="124" r="11"/>
+          </g>
+
+          <!-- candles -->
+          <g>
+            <rect x="150" y="60" width="10" height="44" rx="5" fill="#9275FF"/>
+            <rect x="195" y="60" width="10" height="44" rx="5" fill="#FFB6D9"/>
+            <rect x="240" y="60" width="10" height="44" rx="5" fill="#6FD6A8"/>
+          </g>
+
+          <!-- flames -->
+          <g class="flame">
+            <ellipse cx="155" cy="50" rx="7" ry="13" fill="url(#flameGrad)"/>
+            <ellipse cx="155" cy="53" rx="3" ry="6" fill="#FFF6C9"/>
+          </g>
+          <g class="flame">
+            <ellipse cx="200" cy="50" rx="7" ry="13" fill="url(#flameGrad)"/>
+            <ellipse cx="200" cy="53" rx="3" ry="6" fill="#FFF6C9"/>
+          </g>
+          <g class="flame">
+            <ellipse cx="245" cy="50" rx="7" ry="13" fill="url(#flameGrad)"/>
+            <ellipse cx="245" cy="53" rx="3" ry="6" fill="#FFF6C9"/>
+          </g>
+
+          <!-- little stars -->
+          <g fill="#9275FF" opacity="0.6">
+            <path d="M60 120l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/>
+            <path d="M340 90l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/>
+            <path d="M325 200l2.4 5.6 5.6 2.4-5.6 2.4-2.4 5.6-2.4-5.6-5.6-2.4 5.6-2.4z"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="cake__actions">
+        <button class="btn btn--primary" id="wishBtn" type="button">MAKE A WISH ✨</button>
+        <button class="btn btn--ghost" id="relightBtn" type="button" hidden>Light the Candles Again</button>
+      </div>
+
+      <div class="cake__result" id="wishResult" aria-live="polite" hidden>
+        <p class="cake__result-main">Wish activated! Sending good vibes to the universe... 🚀</p>
+        <p class="cake__result-sub">May your year be full of happiness, success, laughter, and amazing memories.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MYSTERY GIFT BOX
+       ============================================================ -->
+  <section class="section section--tint" id="gift">
+    <div class="container">
+      <h2 class="section__title">Asiya, YOU HAVE ONE MORE GIFT!</h2>
+      <p class="section__lead">
+        No, it's not a new phone. But emotionally, it's worth at least three chocolates. 😂
+      </p>
+
+      <div class="gift" id="giftBox">
+        <div class="gift__sparkles" id="giftSparkles" aria-hidden="true"></div>
+        <svg class="gift__svg" viewBox="0 0 220 210" role="img" aria-labelledby="giftTitle">
+          <title id="giftTitle">A wrapped gift box with a ribbon and a bow</title>
+          <defs>
+            <linearGradient id="giftBodyGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#C9B6FF"/><stop offset="1" stop-color="#9275FF"/>
+            </linearGradient>
+            <linearGradient id="giftLidGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#FFD6B8"/><stop offset="1" stop-color="#FFB6D9"/>
+            </linearGradient>
+          </defs>
+
+          <ellipse cx="110" cy="192" rx="78" ry="12" fill="#35243F" opacity="0.10"/>
+
+          <g class="gift__body">
+            <rect x="42" y="88" width="136" height="96" rx="14" fill="url(#giftBodyGrad)"/>
+            <rect x="98" y="88" width="24" height="96" fill="#FFF9F2" opacity="0.92"/>
+          </g>
+
+          <g class="gift__lid" id="giftLid">
+            <rect x="30" y="60" width="160" height="38" rx="14" fill="url(#giftLidGrad)"/>
+            <rect x="98" y="60" width="24" height="38" fill="#FFF9F2" opacity="0.95"/>
+            <path d="M110 62c-12-20-38-24-42-8-3 13 18 13 42 8z" fill="#FF8FC4"/>
+            <path d="M110 62c12-20 38-24 42-8 3 13-18 13-42 8z" fill="#FF8FC4"/>
+            <circle cx="110" cy="62" r="7" fill="#FFF9F2"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="gift__actions">
+        <button class="btn btn--primary btn--large" id="giftBtn" type="button">OPEN YOUR GIFT 🎁</button>
+      </div>
+
+      <div class="gift-reveal card" id="giftReveal" hidden aria-live="polite">
+        <img class="gift-reveal__art" src="WhatsApp Image 2026-10-20 at 1.15.15 PM.jpeg"
+             alt="Illustration of a gift box" width="120" height="120" />
+        <h3 class="gift-reveal__title">Surprise, Asiya! 💖</h3>
+        <p>
+          Your actual gift is this tiny corner of the internet, created specially to make you smile.
+        </p>
+        <p>
+          It's not expensive, it cannot be returned, and it comes with unlimited friendship benefits.
+        </p>
+        <p>
+          Terms and conditions: Your best friend reserves the right to annoy you throughout the year. 😂
+        </p>
+        <button class="btn btn--primary" id="cuteBtn" type="button">THAT WAS ACTUALLY CUTE 🥹</button>
+        <p class="gift-reveal__extra" id="cuteExtra" hidden>
+          See? Even the most unserious people can have a soft side.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MINI-GAME — CATCH THE BIRTHDAY CAKE
+       ============================================================ -->
+  <section class="section" id="game">
+    <div class="container">
+      <h2 class="section__title">Emergency Cake Rescue! 🎮</h2>
+      <p class="section__lead">
+        Twenty seconds. One cake at a time. Zero pressure. (Totally optional — skip it if you want.)
+      </p>
+
+      <div class="game card">
+        <div class="game__hud">
+          <div class="game__stat">
+            <span class="game__stat-label">Cake collected</span>
+            <strong class="game__stat-value" id="gameScore">0</strong>
+          </div>
+          <div class="game__stat">
+            <span class="game__stat-label">Time left</span>
+            <strong class="game__stat-value" id="gameTime">20</strong>
+          </div>
+        </div>
+
+        <div class="game__area" id="gameArea">
+          <p class="game__hint" id="gameHint">Press Start to begin the rescue mission.</p>
+          <button class="game__cake" id="gameCake" type="button" aria-label="Collect the birthday cake" hidden>
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <rect x="12" y="34" width="40" height="18" rx="5" fill="#FFB6D9"/>
+              <rect x="16" y="24" width="32" height="12" rx="4" fill="#C9B6FF"/>
+              <rect x="10" y="30" width="44" height="7" rx="3.5" fill="#FFF9F2"/>
+              <rect x="20" y="6" width="5" height="16" rx="2.5" fill="#9275FF"/>
+              <ellipse cx="22.5" cy="5" rx="4" ry="6" fill="#FFD07A"/>
+              <rect x="39" y="6" width="5" height="16" rx="2.5" fill="#6FD6A8"/>
+              <ellipse cx="41.5" cy="5" rx="4" ry="6" fill="#FFD07A"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="game__controls">
+          <button class="btn btn--primary" id="gameStart" type="button">Start Rescue</button>
+          <button class="btn btn--ghost" id="gameRestart" type="button" hidden>Restart</button>
+        </div>
+
+        <p class="game__result" id="gameResult" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PHOTO GALLERY — PLACEHOLDERS
+       ============================================================ -->
+  <section class="section section--tint" id="gallery">
+    <div class="container">
+      <h2 class="section__title">THE MEMORY MUSEUM</h2>
+      <p class="section__lead">
+        Reserved for legendary moments, questionable selfies, and future adventures.
+      </p>
+      <p class="section__note">
+        These are illustrated placeholders — not real photos. Swap them for actual memories any time
+        (see README).
+      </p>
+
+      <div class="gallery" id="galleryGrid">
+
+        <figure class="gallery__item reveal">
+          <button class="gallery__btn" type="button" data-caption="Legendary Moments Loading...">
+            <img src="WhatsApp Image 2026-10-20 at 1.15.17 PM.jpeg" alt="Decorative placeholder artwork (illustrated, not a real photo)"
+                 loading="lazy" width="400" height="300" style="--hue:0deg" />
+          </button>
+          <figcaption>Legendary Moments Loading...</figcaption>
+        </figure>
+
+        <figure class="gallery__item reveal">
+          <button class="gallery__btn" type="button" data-caption="Future Adventure Unlocked">
+            <img src="WhatsApp Image 2026-10-20 at 1.15.18 PM.jpeg" alt="Decorative placeholder artwork (illustrated, not a real photo)"
+                 loading="lazy" width="400" height="300" style="--hue:35deg" />
+          </button>
+          <figcaption>Future Adventure Unlocked</figcaption>
+        </figure>
+
+        <figure class="gallery__item reveal">
+          <button class="gallery__btn" type="button" data-caption="Certified Best-Friend Energy">
+            <img src="WhatsApp Image 2026-10-20 at 1.15.09 PM.jpeg" alt="Decorative placeholder artwork (illustrated, not a real photo)"
+                 loading="lazy" width="400" height="300" style="--hue:-40deg" />
+          </button>
+          <figcaption>Certified Best-Friend Energy</figcaption>
+        </figure>
+
+        <figure class="gallery__item reveal">
+          <button class="gallery__btn" type="button" data-caption="The Great Birthday Celebration">
+            <img src="WhatsApp Image 2026-10-20 at 1.15.13 PM.jpeg" alt="Decorative placeholder artwork (illustrated, not a real photo)"
+                 loading="lazy" width="400" height="300" style="--hue:70deg" />
+          </button>
+          <figcaption>The Great Birthday Celebration</figcaption>
+        </figure>
+
+        <figure class="gallery__item reveal">
+          <button class="gallery__btn" type="button" data-caption="Memories Yet to Be Made">
+            <img src="WhatsApp Image 2026-10-20 at 1.15.15 PM.jpeg" alt="Decorative placeholder artwork (illustrated, not a real photo)"
+                 loading="lazy" width="400" height="300" style="--hue:-80deg" />
+          </button>
+          <figcaption>Memories Yet to Be Made</figcaption>
+        </figure>
+
+        <figure class="gallery__item reveal">
+          <button class="gallery__btn" type="button" data-caption="Photo Evidence Pending">
+            <img src="WhatsApp Image 2026-10-20 at 1.15.17 PM.jpeg" alt="Decorative placeholder artwork (illustrated, not a real photo)"
+                 loading="lazy" width="400" height="300" style="--hue:130deg" />
+          </button>
+          <figcaption>Photo Evidence Pending</figcaption>
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FRIENDSHIP APPRECIATION — THE LETTER
+       ============================================================ -->
+  <section class="section" id="letter">
+    <div class="container container--narrow">
+      <h2 class="section__title">Okay, Jokes Aside...</h2>
+
+      <div class="letter card" id="letterCard">
+        <div class="letter__hearts" aria-hidden="true">
+          <span>💗</span><span>💖</span><span>💕</span><span>💗</span><span>💖</span>
+        </div>
+
+        <!-- ✏️ EDIT THIS MESSAGE FREELY — the typing animation reads it automatically -->
+        <div class="letter__body" id="letterBody">
+          <p>Happy Birthday, Asiya! 💗</p>
+          <p>Behind all the jokes, teasing, and birthday chaos, I genuinely wish you happiness, peace, success, and beautiful moments in the year ahead.</p>
+          <p>May you keep discovering new things, achieving the goals that matter to you, and finding reasons to smile even on ordinary days.</p>
+          <p>Thank you for being a part of my life and for making friendship a little more fun.</p>
+          <p>No matter how much I joke around, I hope you always know that I wish the best for you.</p>
+          <p>Stay happy, keep shining, and never stop being your amazing self.</p>
+          <p>Happy Birthday once again, bestie! 🎂💖</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FINAL CELEBRATION
+       ============================================================ -->
+  <section class="finale" id="finale">
+    <div class="finale__balloons" aria-hidden="true">
+      <span class="balloon balloon--1" style="--c:#FFB6D9"></span>
+      <span class="balloon balloon--2" style="--c:#C9B6FF"></span>
+      <span class="balloon balloon--3" style="--c:#FFD6B8"></span>
+      <span class="balloon balloon--4" style="--c:#9BE7C4"></span>
+      <span class="balloon balloon--5" style="--c:#FFE07A"></span>
+    </div>
+
+    <div class="container finale__inner">
+      <img class="finale__art" src="WhatsApp Image 2026-10-20 at 1.15.18 PM.jpeg"
+           alt="Illustration of a birthday cake" width="180" height="180" />
+
+      <h2 class="finale__title">HAPPY BIRTHDAY, ASIYA! 🎂💖</h2>
+      <p class="finale__text">
+        May your happiness be unlimited, your cake be enormous, and your best friend remain only
+        slightly annoying. 😂
+      </p>
+
+      <div class="finale__actions">
+        <button class="btn btn--primary btn--large" id="celebrateBtn" type="button">CELEBRATE AGAIN 🎉</button>
+        <button class="btn btn--ghost" id="readAgainBtn" type="button">READ YOUR MESSAGE AGAIN 💌</button>
+        <button class="btn btn--ghost" id="backToTopBtn" type="button">BACK TO THE TOP ↑</button>
+      </div>
+
+      <footer class="finale__footer">
+        <p>Made with questionable humor, unlimited friendship, and one very determined developer.</p>
+      </footer>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     LIGHTBOX
+     ============================================================ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged gallery item" hidden>
+  <div class="lightbox__backdrop" data-close-lightbox></div>
+  <div class="lightbox__panel">
+    <button class="lightbox__close" id="lightboxClose" type="button" aria-label="Close image">✕</button>
+    <img class="lightbox__img" id="lightboxImg" src="WhatsApp Image 2026-10-20 at 1.15.09 PM.jpeg" alt="" />
+    <p class="lightbox__caption" id="lightboxCaption"></p>
+    <p class="lightbox__note">Illustrated placeholder — no real photo here (yet).</p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
